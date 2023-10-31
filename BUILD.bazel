@@ -1,0 +1,18 @@
+load("//build/kernel/kleaf:kernel.bzl", "kernel_module")
+
+kernel_module(
+    name = "npu",
+    srcs = glob(
+        ["**"],
+        exclude = [
+            "BUILD.bazel",
+        ],
+    ),
+    outs = [
+        "galcore.ko",
+    ],
+    kernel_build = "//common:amlogic",
+    visibility = [
+        "//common:__pkg__",
+    ],
+)
